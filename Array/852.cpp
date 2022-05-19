@@ -6,25 +6,28 @@ class Solution
 public:
     int peakIndexInMountainArray(vector<int> &arr)
     {
-        int n = arr.size();
-        int max = 0;
-        int ans;
-        int i;
-        for (i = 0; i < n; i++)
+        int s = 0;
+        int e = arr.size() - 1;
+        int mid = s + (e - s) / 2;
+        while (s < e)
         {
-            if (arr[i] > max)
+            if (arr[mid] < arr[mid + 1])
             {
-                max = arr[i];
-                ans = i;
+                s = mid + 1;
             }
+            else
+            {
+                e = mid;
+            }
+            mid = s + (e - s) / 2;
         }
-        return ans;
+        return s;
     }
 };
 int main()
 {
     Solution s;
-    vector<int> arr{2, 6, 75, 3, 5};
+    vector<int> arr{2, 6, 75, 302, 5};
     cout << s.peakIndexInMountainArray(arr);
     return 0;
 }
