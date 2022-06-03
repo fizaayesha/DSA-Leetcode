@@ -65,7 +65,7 @@ public:
 int main()
 {
     Solution s;
-    vector<int> arr{2, 5, 6, 11, 12};
-    cout << s.search(arr, 6);
+    vector<int> nums{5, 6, 7, 1, 2, 3, 4};
+    cout << s.search(nums, 6);
     return 0;
 }
